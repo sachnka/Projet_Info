@@ -3,5 +3,6 @@ project(Projet_Info)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Projet_Info main.cpp)
+add_executable(Projet_Info main.cpp
+        menu.cpp)
 
