@@ -13,5 +13,8 @@
 void load_menu_assets();
 void draw_menu(BITMAP *buffer);
 int menu_choix(BITMAP *buffer);
+void load_regles_assets();
+void afficher_regles(BITMAP *buffer);
+
 
 #endif
