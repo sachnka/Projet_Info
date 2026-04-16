@@ -24,10 +24,10 @@ int main() {
             break;
 
         case 3:
-            allegro_message("Les règles !");
-            // TODO : afficher les règles
+            load_regles_assets();
+            afficher_regles(buffer);
             break;
-
+        
         case 4:
             allegro_message("Quitter !");
             return 0;

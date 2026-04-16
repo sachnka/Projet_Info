@@ -4,10 +4,6 @@ BITMAP *background = NULL;
 
 void load_menu_assets() {
     background = load_bitmap("jojo.bmp", NULL);
-
-    if (!background) {
-        allegro_message("Impossible de charger jojo.bmp !");
-    }
 }
 
 void draw_menu(BITMAP *b) {
@@ -48,5 +44,40 @@ int menu_choix(BITMAP *buffer) {
     }
 
     return choix;
+}
+BITMAP *background_regles = NULL;
+
+void load_regles_assets() {
+    background_regles = load_bitmap("station.bmp", NULL);
+}
+void afficher_regles(BITMAP *buffer) {
+
+    while (!key[KEY_ESC]) {
+
+        if (background_regles) {
+            blit(background_regles, buffer, 0, 0, 0, 0, GAME_W, GAME_H);
+        } else {
+            clear_to_color(buffer, makecol(0,0,0));
+            textout_centre_ex(buffer, font, "Impossible de charger l'image des règles",
+                              GAME_W/2, GAME_H/2, makecol(255,255,255), -1);
+        }
+
+        textout_ex(buffer, font, "REGLES DU JEU :", 20, 20, makecol(255,255,255), -1);
+        textout_ex(buffer, font, "- Deplace ton personnage avec les fleches", 20, 60, makecol(255,255,255), -1);
+        textout_ex(buffer, font, "- Evite les obstacles", 20, 90, makecol(255,255,255), -1);
+        textout_ex(buffer, font, "- Attrape les bulles pour marquer des points", 20, 120, makecol(255,255,255), -1);
+        textout_ex(buffer, font, "- Appuie sur ESC pour revenir au menu", 20, 150, makecol(255,255,255), -1);
+
+
+
+
+
+
+        blit(buffer, screen, 0, 0, 0, 0, GAME_W, GAME_H);
+
+        if (key[KEY_ESC]) break;
+
+        rest(10);
+    }
 }
 
